@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function areAnagrams(str1,str2){
+            if(str1.length !== str2.length){
+                return false;
+            }
+            const sortedstr1 = str1.split('').sort().join('');
+            const sortedstr2 = str2.split('').sort().join('');
+
+            return sortedstr1 === sortedstr2 
+        }
+        const str1 = "listen";
+        const str2 = "silent";
+
+        console.log(areAnagrams(str1, str2)); // Output: true
+
+        const str3 = "hello";
+        const str4 = "world";
+
+        console.log(areAnagrams(str3, str4));
+    </script>
+</body>
+</html>

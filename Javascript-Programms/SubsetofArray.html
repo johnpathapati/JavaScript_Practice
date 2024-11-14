@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Using every and Includes
+        function isSubset(mainArray,subset){
+            return subset.every(element=> mainArray.includes(element));
+        
+// The every method is an array method that checks if every element in the array meets a specific condition.
+// Here, every iterates through each element in the subset array.
+// It returns true only if the condition is true for every element in subset. If even one element does not satisfy the condition, it will return false.
+        }
+        const mainArray = [1,2,3,4,5];
+        const subset = [2,3,5];
+        console.log(isSubset(mainArray,subset));
+    </script>
+</body>
+</html>

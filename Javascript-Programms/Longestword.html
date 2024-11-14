@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function LongestWord(str){
+            let words = str.split(" ");
+            let longestword = "";
+             
+            for( let i=0 ; i<words.length ; i++){    
+            if(words[i].length > longestword.length ){
+                    longestword = words[i];
+                }
+            }
+            return longestword;
+        }
+        document.write(LongestWord("Java Script programiming language"))
+    </script>
+</body>
+</html>

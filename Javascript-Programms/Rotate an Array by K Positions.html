@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function rotateArray(arr,k){
+            const n = arr.length;
+
+            k = k % n;
+
+            const rotatedArray = arr.slice(n-k).concat(arr.slice(0,n-k));
+
+            return rotatedArray;
+
+        }
+        const arr = [1, 2, 3, 4, 5];
+        const k = 2;
+        console.log(rotateArray(arr, k));
+    </script>
+    <!-- 
+    Why use k = k % n?
+    For an array of length 5, if k = 6:
+    6 % 5 = 1
+    This means rotating by 6 positions is the same as rotating by 1 position.
+    Why use k = k % n in the code?
+    Handle large values of k: If k is larger than the array length n, this will reduce k to a smaller equivalent value.
+    Optimization: It prevents unnecessary rotations and makes the code more efficient. -->
+</body>
+</html>

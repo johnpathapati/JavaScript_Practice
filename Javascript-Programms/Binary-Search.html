@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function binarysearch(array,target){
+
+            array.sort((a, b) => a - b);  
+
+            let left = 0 ;
+            let right = array.length - 1 ;
+
+            while(left <= right){
+                const mid = Math.floor((left+right)/2 );
+
+                if(array[mid] === target){
+                    return mid;
+                }
+                if(array[mid] < target){
+                    left = mid+1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            return -1 ;
+
+        }
+        const sortedArray = [1, 33, 5, 7, 9, 11];
+        const target = 33;
+        const index = binarysearch(sortedArray, target);
+        document.write(index); 
+    </script>
+</body>
+</html>

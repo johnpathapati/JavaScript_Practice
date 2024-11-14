@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- What is Currying?
+
+    Currying is a technique in functional programming where a function with multiple arguments is transformed into a
+    series of functions, each taking a single argument. This means that instead of calling a function with all arguments
+    at once, you call a sequence of functions that each take one argument at a time.
+
+    In a typical function, you might pass multiple arguments at once:
+    
+    Benefits of Currying
+
+    Modularity: Breaking down functions into smaller, single-argument functions makes them easier to reuse.
+    Readability: Curried functions can make it clear which argument is fixed or partially applied.
+    Customization: You can partially apply functions for specific use cases without rewriting or overloading them.
+
+    When to Use Currying Use currying when:
+
+    You want to create reusable, partially-applied functions.
+    You need to use the same function in different configurations.
+    You’re working with higher-order functions or functional programming patterns where composability and modularity are
+    prioritized. -->
+
+    <script>
+
+        function add1(a, b) {
+            return a + b;
+        }
+        console.log(add1(2, 3)); // Output: 5
+
+        //With currying, you transform add so it takes one argument at a time:
+
+        function add(a) {
+            return function (b) {
+                return a + b;
+            };
+        }
+
+        const addTwo = add(2); // addTwo is now a function that takes one argument
+        console.log(addTwo(3)); // Output: 5
+
+
+        //Converting a Normal Function to a Curried Function
+
+        function curry(func) { //func === This is the original function that you want to "curry" or transform into a curried version.  The func parameter is passed into the curry function when you call it, so it refers to the function that needs to be curried.
+            return function curried(...args) { // The ...args is the rest parameter. It collects all the arguments passed to the curried function at any given call.
+                if (args.length >= func.length) {
+                    return func(...args); //The func(...args) uses the spread operator (...args) to pass all the collected arguments to the original function.
+                }
+                return function (...nextArgs) {
+                    return curried(...args, ...nextArgs);
+                };
+            };
+        }
+        function sum(a, b, c) {
+            return a + b + c;
+        }
+
+        const curriedSum = curry(sum);
+        console.log(curriedSum(1)(2)(3));
+        console.log(curriedSum(1, 2)(3));
+        console.log(curriedSum(1, 2, 3));
+
+    </script>
+
+
+
+</body>
+
+</html>

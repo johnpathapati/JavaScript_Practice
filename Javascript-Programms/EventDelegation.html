@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <script>
+        var parentList = document.getElementById("myList");
+        
+        //addEventListener is a JavaScript method that attaches a function to run when a specified event occurs on an element.
+        parentList.addEventListener("click",handleItemClick);
+
+        function handleItemClick(event){
+            var target = event.target; //Logic : In an event delegation pattern, event.target helps identify which element within parentList was clicked. In this case, event.target would be the <li> element that was clicked
+            console.log("Clicked:",target.textContent); // By printing target.textContent, we provide feedback on which item was clicked
+            //1.target represents the clicked <li> item. 
+            //2.textContent pulls just the text from that <li> item
+        }
+
+    </script>
+    <!-- Full Logic Explanation
+    The code uses event delegation to manage click events for multiple <li> elements within a single <ul> parent container. Instead of attaching individual click event listeners to each <li>, it attaches one listener to the parent <ul> element. When a click occurs on any <li>, the event bubbles up to the <ul>, triggering the handleItemClick function.
+    
+    Efficiency: Event delegation is more efficient because it reduces the number of event listeners, especially helpful when dealing with large numbers of similar elements.
+    Dynamic Content Handling: If you add new <li> elements to parentList, they’ll automatically be covered by the same event listener, without any additional code. -->
+</body>
+</html>

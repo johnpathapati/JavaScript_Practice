@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function palindrome(str){
+
+            str = str.toLowerCase(); //, you ensure that "Madam" and "madam" are treated as the same, making the palindrome check case-insensitive.
+            return str === str.split('').reverse().join('');
+
+        }
+        document.write(palindrome("Madam"));
+    </script>
+</body>
+</html>

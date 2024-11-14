@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findMissingNumber(arr){
+            const n = arr.length+1; //one number is missing that we add one value
+            const expectedSum = (n*(n+1))/2; //Sum of n numbers formula
+            const actualSum = arr.reduce((sum,num) => sum+num,0); //arr.reduce(callback, initialValue);
+            return expectedSum - actualSum ;
+
+        }
+        const arr = [1,2,4,5];
+        document.write(findMissingNumber(arr));
+    </script>
+</body>
+</html>

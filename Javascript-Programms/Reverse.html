@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // By Using Reverse method
+        function reverse(str){
+            return str.split('').reverse().join('');
+
+        }
+        let inputString = "Frontend developer";
+        document.write(reverse(inputString)+"<br>")
+
+        // By using Looping (For loop)
+        function Reverse(str){
+            let reverse = " ";
+            for(let i=str.length-1;i>=0;i--){
+                reverse += str[i];
+            }
+            return reverse;
+        }
+        let InputString = "javascript fundamentals";
+        document.write(Reverse(InputString));
+        
+    </script>
+</body>
+</html>
